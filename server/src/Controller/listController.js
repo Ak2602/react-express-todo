@@ -1,6 +1,6 @@
-import { con } from "../modal/database.js";
-import value from "../modal/date.js";
-import { flag } from "../modal/flag.js";
+import { con } from "../database/database.js";
+import value from "../database/date.js";
+import { flag } from "../database/flag.js";
 
 export const addList = async (req, res) => {
   try {

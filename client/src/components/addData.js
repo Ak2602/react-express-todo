@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import "../App.css";
+
 // import { Link } from "react-router-dom";
 
 const DataList = () => {
@@ -85,10 +87,10 @@ const DataList = () => {
                 <td>{data.task}</td>
                 <td>{data.status}</td>
                 <td>
-                  <button className="btn" onClick={() => deleteData(data.id)}>
+                  <button className="btn1" onClick={() => deleteData(data.id)}>
                     Delete
                   </button>
-                  <button className="btn" onClick={() => updateData(data.id)}>
+                  <button className="btn2" onClick={() => updateData(data.id)}>
                     Done
                   </button>
                 </td>

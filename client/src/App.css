@@ -1,0 +1,32 @@
+.btn_add {
+  width: 5%;
+  background-color: whitesmoke;
+  border: 2px solid rgb(60, 171, 207);
+  border-radius: 8px;
+  transition-duration: 0.4s;
+}
+.btn1 {
+  background-color: whitesmoke;
+  border: 2px solid red;
+  border-radius: 8px;
+  transition-duration: 0.4s;
+}
+.btn2 {
+  background-color: whitesmoke;
+  border: 2px solid #4caf50;
+  border-radius: 8px;
+  transition-duration: 0.4s;
+}
+
+.btn1:hover {
+  background-color: red;
+  color: white;
+}
+.btn2:hover {
+  background-color: #4caf50;
+  color: white;
+}
+.btn_add:hover {
+  background-color: rgb(60, 171, 207);
+  color: white;
+}

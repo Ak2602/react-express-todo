@@ -8,8 +8,8 @@ import logger from "morgan";
 import cors from "cors";
 import bodyParser from "body-parser";
 
-import { indexRouter } from "./src/routes/index.js";
-import { listRouter } from "./src/routes/listRoute.js";
+import { indexRouter } from "./src/Router/index.js";
+import { listRouter } from "./src/Router/listRoute.js";
 
 // import usersRouter from "./routes/users.js";
 

@@ -1,4 +1,4 @@
-import { con } from "../modal/database.js";
+import { con } from "../database/database.js";
 
 export const displayList = async (req, res) => {
   try {

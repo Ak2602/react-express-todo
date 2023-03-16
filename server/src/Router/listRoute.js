@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { addList, delList, updList } from "../controllers/listController.js";
+import { addList, delList, updList } from "../Controller/listController.js";
 
 export const listRouter = Router();
 

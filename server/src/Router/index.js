@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { displayList } from "../controllers/indexController.js";
+import { displayList } from "../Controller/indexController.js";
 
 export const indexRouter = Router();
 
