@@ -30,17 +30,10 @@ export const delList = async (req, res) => {
     let id = req.body.id;
     console.log(id);
     let deleteQry = `Delete from mydb where id = "${id}" `;
-    // con.query(searchQry, function (err, rows) {
-    //   if (err) throw err;
-    //   if (rows == 0) {
-    //     res.send("Task does'not Exists!!!");
-    //   } else {
     con.query(deleteQry, function (err, result) {
       if (err) throw err;
       res.send("Data Deleted!!!");
     });
-    // }
-    // });
   } catch {
     res.send("Error");
   }
