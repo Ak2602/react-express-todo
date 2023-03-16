@@ -48,17 +48,9 @@ export const delList = async (req, res) => {
 
 export const updList = async (req, res) => {
   let id = req.body.id;
-
-  let searchQry = `SELECT * FROM mydb WHERE id = "${id}"`;
+  console.log(id);
   let updQry = `UPDATE mydb SET status = "Completed" WHERE id = "${id}"`;
-  con.query(searchQry, function (err, rows) {
-    if (err) throw err;
-    if (rows == 0) {
-      res.send("Task Does'not exists!!!");
-    } else {
-      con.query(updQry, function (err, rows) {
-        res.send("Updated Successful!!!");
-      });
-    }
+  con.query(updQry, function (err, rows) {
+    res.send("Updated Successful!!!");
   });
 };

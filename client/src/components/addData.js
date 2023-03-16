@@ -24,21 +24,18 @@ const DataList = () => {
   };
   const updateData = async (id) => {
     await axios
-      .put("http://localhost:9000/done", { id })
-      .then((add_data) => console.log(add_data))
+      .put("http://localhost:9000/done", { id: id })
+      .then((upd_data) => console.log(upd_data))
       .catch((error) => console.log(error));
     getData();
   };
   const deleteData = async (id) => {
     console.log(id);
     await axios
-      .delete(
-        "http://localhost:9000/remove",
-        { id: id },
-        { headers: { "Content-type": "application/json" } }
-      )
+      .delete("http://localhost:9000/remove", { data: { id: id } })
       .then((del_data) => console.log(del_data))
       .catch((error) => console.log(error));
+    getData();
 
     // fetch("http://localhost:9000/remove", {
     //   method: "DELETE",
@@ -53,8 +50,8 @@ const DataList = () => {
 
   return (
     <div className="body">
-      <div id="app">
-        <h1>to do list</h1>
+      <div className="text-center">
+        <h1 className="display-2">To do list</h1>
         <input
           name="username"
           type="text"
@@ -67,7 +64,7 @@ const DataList = () => {
         <button className="btn_add" onClick={addData}>
           Add
         </button>
-        <p>Insert a new task</p>
+        <p className="fs-4">Insert a new task</p>
       </div>
       <center>
         <table className="table" border={"1px"}>
@@ -77,6 +74,7 @@ const DataList = () => {
               <th>Date</th>
               <th>Task</th>
               <th>Status</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -87,11 +85,11 @@ const DataList = () => {
                 <td>{data.task}</td>
                 <td>{data.status}</td>
                 <td>
-                  <button
-                    className="btn_add"
-                    onClick={() => deleteData(data.id)}
-                  >
+                  <button className="btn" onClick={() => deleteData(data.id)}>
                     Delete
+                  </button>
+                  <button className="btn" onClick={() => updateData(data.id)}>
+                    Done
                   </button>
                 </td>
                 {/* <td>

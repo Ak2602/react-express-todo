@@ -3,7 +3,6 @@ import { con } from "../modal/database.js";
 export const displayList = async (req, res) => {
   try {
     let data = [];
-    let data2 = [];
 
     let displayQuery = "SELECT * FROM mydb";
     con.query(displayQuery, function (err, result) {
