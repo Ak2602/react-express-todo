@@ -1,7 +1,7 @@
 import { con } from "../database/database.js";
 import { list } from "../database/list.model.js";
-import value from "../database/date.js";
-import { flag } from "../database/flag.js";
+import value from "../utils/date.js";
+import { flag } from "../utils/flag.js";
 
 export const add = async (req, response) => {
   try {
