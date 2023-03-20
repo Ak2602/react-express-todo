@@ -15,10 +15,10 @@ export const add = async (req, response) => {
           status: flag,
         })
         .then((res) => {
-          response.send(res);
+          response.status(201).send({ Message: "Task Added.." });
         })
         .catch((error) => {
-          response.send(error);
+          response.status(204).send({ Message: error });
         });
     });
 
@@ -36,7 +36,7 @@ export const add = async (req, response) => {
     //   }
     // });
   } catch {
-    response.send("Error");
+    response.status(500).send({ Message: "Internal server error!!!" });
   }
 };
 
@@ -52,12 +52,10 @@ export const remove = async (req, response) => {
         })
         .then((res) => {
           console.log(res);
-          response.send({
-            Message: "Data deleted !!!",
-          });
+          response.status(200).send({ Message: "Record deleted!!!" });
         })
         .catch((error) => {
-          response.send(error);
+          response.status(204).send({ Message: error });
         });
     });
     // console.log(id);
@@ -67,7 +65,7 @@ export const remove = async (req, response) => {
     //   res.send("Data Deleted!!!");
     // });
   } catch {
-    response.send("Error");
+    response.status(500).send({ Message: "Internal server error!!!" });
   }
 };
 
@@ -87,10 +85,12 @@ export const update = async (req, response) => {
           }
         )
         .then((res) => {
-          response.send(res);
+          response
+            .status(200)
+            .send({ Message: "Record updated Successfully..." });
         })
         .catch((error) => {
-          response.send(error);
+          response.status(204).send({ Message: error });
         });
     });
     // console.log(id);
@@ -99,6 +99,6 @@ export const update = async (req, response) => {
     //   res.send("Updated Successful!!!");
     // });
   } catch {
-    response.send("error");
+    response.status(500).send({ Message: "Internal server error!!!" });
   }
 };

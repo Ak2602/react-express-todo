@@ -12,7 +12,7 @@ export const display = async (req, res) => {
           sendData();
         })
         .catch((error) => {
-          res.send(error);
+          res.status(204).send({ Message: error });
         });
     });
     // let displayQuery = "SELECT * FROM mydb";
@@ -27,6 +27,6 @@ export const display = async (req, res) => {
     }
     console.log(data);
   } catch (err) {
-    res.send("error");
+    res.status(500).send({ Message: err });
   }
 };
