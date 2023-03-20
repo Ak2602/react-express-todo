@@ -15,10 +15,10 @@ export const add = async (req, response) => {
           status: flag,
         })
         .then((res) => {
-          response.status(201).send({ Message: "Task Added.." });
+          response.status(201).json(res);
         })
         .catch((error) => {
-          response.status(204).send({ Message: error });
+          response.status(204).json(error);
         });
     });
 
@@ -35,8 +35,8 @@ export const add = async (req, response) => {
     //     });
     //   }
     // });
-  } catch {
-    response.status(500).send({ Message: "Internal server error!!!" });
+  } catch (err) {
+    response.status(500).json(err);
   }
 };
 
@@ -52,10 +52,10 @@ export const remove = async (req, response) => {
         })
         .then((res) => {
           console.log(res);
-          response.status(200).send({ Message: "Record deleted!!!" });
+          response.status(200).json(res);
         })
         .catch((error) => {
-          response.status(204).send({ Message: error });
+          response.status(204).json(error);
         });
     });
     // console.log(id);
@@ -64,8 +64,8 @@ export const remove = async (req, response) => {
     //   if (err) throw err;
     //   res.send("Data Deleted!!!");
     // });
-  } catch {
-    response.status(500).send({ Message: "Internal server error!!!" });
+  } catch (err) {
+    response.status(500).json(err);
   }
 };
 
@@ -85,12 +85,10 @@ export const update = async (req, response) => {
           }
         )
         .then((res) => {
-          response
-            .status(200)
-            .send({ Message: "Record updated Successfully..." });
+          response.status(200).json(res);
         })
         .catch((error) => {
-          response.status(204).send({ Message: error });
+          response.status(204).json(error);
         });
     });
     // console.log(id);
@@ -98,7 +96,7 @@ export const update = async (req, response) => {
     // con.query(updQry, function (err, rows) {
     //   res.send("Updated Successful!!!");
     // });
-  } catch {
-    response.status(500).send({ Message: "Internal server error!!!" });
+  } catch (err) {
+    response.status(500).json(err);
   }
 };
