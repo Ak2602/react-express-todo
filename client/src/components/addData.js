@@ -19,7 +19,7 @@ const DataList = () => {
 
   const addData = async () => {
     await axios
-      .post("http://localhost:9000/new", { name: formData })
+      .post("http://localhost:9000/new", { task: formData })
       .then((add_data) => console.log(add_data))
       .catch((error) => console.log(error));
     getData();
