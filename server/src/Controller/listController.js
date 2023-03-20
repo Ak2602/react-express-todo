@@ -1,10 +1,9 @@
 import { con } from "../database/database.js";
-import { list } from "../modals/list.modal.js";
+import { list } from "../database/list.model.js";
 import value from "../database/date.js";
 import { flag } from "../database/flag.js";
-import { where } from "sequelize";
 
-export const addList = async (req, response) => {
+export const add = async (req, response) => {
   try {
     let { task } = req.body;
 
@@ -41,7 +40,7 @@ export const addList = async (req, response) => {
   }
 };
 
-export const delList = async (req, response) => {
+export const remove = async (req, response) => {
   try {
     let id = req.body.id;
     con.sync().then(() => {
@@ -72,7 +71,7 @@ export const delList = async (req, response) => {
   }
 };
 
-export const updList = async (req, response) => {
+export const update = async (req, response) => {
   try {
     let id = req.body.id;
     con.sync().then(() => {

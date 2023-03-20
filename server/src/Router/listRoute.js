@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { addList, delList, updList } from "../Controller/listController.js";
+import { add, remove, update } from "../Controller/listController.js";
 
 export const listRouter = Router();
 
-listRouter.post("/new", addList);
-listRouter.delete("/remove", delList);
-listRouter.put("/done", updList);
+listRouter.post("/new", add);
+listRouter.delete("/remove", remove);
+listRouter.put("/done", update);

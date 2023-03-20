@@ -1,4 +1,4 @@
-import { con } from "../database/database.js";
+import { con } from "./database.js";
 import { DataTypes } from "sequelize";
 
 export const list = con.define("list", {

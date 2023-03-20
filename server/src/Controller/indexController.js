@@ -1,7 +1,7 @@
 import { con } from "../database/database.js";
-import { list } from "../modals/list.modal.js";
+import { list } from "../database/list.model.js";
 
-export const displayList = async (req, res) => {
+export const display = async (req, res) => {
   try {
     let data = [];
     con.sync().then(() => {
