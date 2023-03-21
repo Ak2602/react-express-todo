@@ -8,8 +8,8 @@ import logger from "morgan";
 import cors from "cors";
 import bodyParser from "body-parser";
 
-import { indexRouter } from "./src/Router/index.js";
 import { listRouter } from "./src/Router/listRoute.js";
+import { logRouter } from "./src/router/userRoute.js";
 
 // import usersRouter from "./routes/users.js";
 
@@ -30,7 +30,7 @@ app.use(urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(join(__dirname, "public")));
 
-app.use("/", indexRouter);
+app.use("/", logRouter);
 app.use("/", listRouter);
 
 // app.use("/users", usersRouter);

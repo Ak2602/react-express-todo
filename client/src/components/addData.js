@@ -7,14 +7,28 @@ import "../App.css";
 const DataList = () => {
   const [data, setData] = useState([]);
   const [formData, setFormData] = useState("");
+  const [user, setUser] = useState({ username: "", password: "" });
 
+  console.log(user);
   useEffect(() => {
     getData();
   }, []);
 
+  const userHandler = (e) => {
+    setUser({ ...user, [e.target.name]: e.target.value });
+  };
+
   const getData = async () => {
     const response = await axios.get("http://localhost:9000/");
     setData(response.data);
+  };
+
+  const userData = async (e) => {
+    e.preventDefault();
+    await axios
+      .post("http://localhost:9000/user", user)
+      .then((add_data) => console.log(add_data))
+      .catch((error) => console.log(error));
   };
 
   const addData = async () => {
@@ -52,6 +66,32 @@ const DataList = () => {
 
   return (
     <div className="body">
+      <form
+        onSubmit={(e) => {
+          userData(e);
+        }}
+      >
+        <input
+          name="username"
+          type="text"
+          value={user.username}
+          onChange={(e) => {
+            userHandler(e);
+          }}
+          placeholder="Username"
+        />
+        <input
+          name="password"
+          type="text"
+          value={user.password}
+          onChange={(e) => {
+            userHandler(e);
+          }}
+          placeholder="Password"
+        />
+        <input type="submit" value={"submit..."} />
+        <button>Submit</button>
+      </form>
       <div className="text-center">
         <h1 className="display-2">To do list</h1>
         <input

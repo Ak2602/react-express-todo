@@ -1,7 +1,7 @@
-import { Router } from "express";
-import { display } from "../Controller/indexController.js";
+// import { Router } from "express";
+// import { display } from "../Controller/indexController.js";
 
-export const indexRouter = Router();
+// export const indexRouter = Router();
 
-/* GET home page. */
-indexRouter.get("/", display);
+// /* GET home page. */
+// indexRouter.get("/none", display);

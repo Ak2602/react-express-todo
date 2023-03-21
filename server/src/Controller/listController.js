@@ -1,5 +1,5 @@
 import { con } from "../database/database.js";
-import { list } from "../database/list.model.js";
+import { list } from "../models/list.model.js";
 import value from "../utils/date.js";
 import { flag } from "../utils/flag.js";
 

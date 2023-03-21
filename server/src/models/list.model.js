@@ -1,4 +1,4 @@
-import { con } from "./database.js";
+import { con } from "../database/database.js";
 import { DataTypes } from "sequelize";
 
 export const list = con.define("list", {
@@ -12,6 +12,10 @@ export const list = con.define("list", {
   },
   status: {
     type: DataTypes.STRING,
+    allowNull: false,
+  },
+  user_id: {
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
 });
