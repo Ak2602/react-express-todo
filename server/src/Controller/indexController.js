@@ -10,7 +10,6 @@ export const display = async (req, response) => {
         .then((res) => {
           data = res;
           response.status(200).json(data);
-          // console.log(data);
         })
         .catch((error) => {
           response.status(204).json(error);

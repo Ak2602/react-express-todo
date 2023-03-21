@@ -51,7 +51,6 @@ export const remove = async (req, response) => {
           },
         })
         .then((res) => {
-          console.log(res);
           response.status(200).json(res);
         })
         .catch((error) => {
