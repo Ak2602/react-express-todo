@@ -1,7 +1,9 @@
-// import { Router } from "express";
-// import { display } from "../Controller/indexController.js";
+import { Router } from "express";
+import { login } from "../Controller/indexController.js";
 
-// export const indexRouter = Router();
+export const indexRouter = Router();
 
-// /* GET home page. */
-// indexRouter.get("/none", display);
+/* GET home page.*/
+
+indexRouter.post("/", login);
+// indexRouter.post("/:id", login);

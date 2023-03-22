@@ -10,6 +10,7 @@ import bodyParser from "body-parser";
 
 import { listRouter } from "./src/Router/listRoute.js";
 import { logRouter } from "./src/router/userRoute.js";
+import { indexRouter } from "./src/router/index.js";
 
 // import usersRouter from "./routes/users.js";
 
@@ -30,6 +31,7 @@ app.use(urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(join(__dirname, "public")));
 
+app.use("/", indexRouter);
 app.use("/", logRouter);
 app.use("/", listRouter);
 

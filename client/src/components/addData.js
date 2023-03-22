@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 import "../App.css";
 
@@ -8,11 +8,6 @@ const DataList = () => {
   const [data, setData] = useState([]);
   const [formData, setFormData] = useState("");
   const [user, setUser] = useState({ username: "", password: "" });
-
-  console.log(user);
-  useEffect(() => {
-    getData();
-  }, []);
 
   const userHandler = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -52,16 +47,6 @@ const DataList = () => {
       .then((del_data) => console.log(del_data))
       .catch((error) => console.log(error));
     getData();
-
-    // fetch("http://localhost:9000/remove", {
-    //   method: "DELETE",
-    //   body: JSON.stringify({ id }),
-    //   headers: { "Content-type": "application/json; charset=UTF-8" },
-    // })
-    //   .then((response) => response.json())
-    //   .then((json) => console.log(json))
-    //   .catch((err) => console.log(err));
-    // getData();
   };
 
   return (

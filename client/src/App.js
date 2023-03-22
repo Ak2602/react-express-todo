@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import DataList from "./components/addData";
+import Login from "./components/login";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -9,7 +10,8 @@ function App() {
         <div className="columns">
           <div className="column is-half is-offset-one-quarter">
             <Routes>
-              <Route path="/" element={<DataList />} />
+              <Route path="/" element={<Login />} />
+              <Route path="/user" element={<DataList />} />
             </Routes>
           </div>
         </div>
