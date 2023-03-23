@@ -13,9 +13,9 @@ export const login = async (req, response) => {
         },
       });
       if (user) {
-        response.status(200).json("Logging Success..");
+        response.status(200).json({ value: true, user_id: user.id });
       } else {
-        response.status(404).json("Invalid Credentials!!!");
+        response.status(404).json(false);
       }
     });
   } catch {

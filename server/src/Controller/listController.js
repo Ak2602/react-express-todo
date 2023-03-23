@@ -13,6 +13,7 @@ export const add = async (req, response) => {
           date: value,
           task: task,
           status: flag,
+          user_id: req.params.id,
         })
         .then((res) => {
           response.status(201).json(res);

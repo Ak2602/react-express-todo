@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 import "../App.css";
 
 // import { Link } from "react-router-dom";
@@ -7,28 +8,21 @@ import "../App.css";
 const DataList = () => {
   const [data, setData] = useState([]);
   const [formData, setFormData] = useState("");
-  const [user, setUser] = useState({ username: "", password: "" });
+  const { id } = useParams();
 
-  const userHandler = (e) => {
-    setUser({ ...user, [e.target.name]: e.target.value });
-  };
+  useEffect(() => {
+    getData();
+  }, []);
 
   const getData = async () => {
-    const response = await axios.get("http://localhost:9000/");
-    setData(response.data);
-  };
-
-  const userData = async (e) => {
-    e.preventDefault();
     await axios
-      .post("http://localhost:9000/user", user)
-      .then((add_data) => console.log(add_data))
-      .catch((error) => console.log(error));
+      .get(`http://localhost:9000/list/${id}`)
+      .then((response) => setData(response.data));
   };
 
   const addData = async () => {
     await axios
-      .post("http://localhost:9000/new", { task: formData })
+      .post(`http://localhost:9000/new/${id}`, { task: formData })
       .then((add_data) => console.log(add_data))
       .catch((error) => console.log(error));
     getData();
@@ -50,33 +44,7 @@ const DataList = () => {
   };
 
   return (
-    <div className="body">
-      <form
-        onSubmit={(e) => {
-          userData(e);
-        }}
-      >
-        <input
-          name="username"
-          type="text"
-          value={user.username}
-          onChange={(e) => {
-            userHandler(e);
-          }}
-          placeholder="Username"
-        />
-        <input
-          name="password"
-          type="text"
-          value={user.password}
-          onChange={(e) => {
-            userHandler(e);
-          }}
-          placeholder="Password"
-        />
-        <input type="submit" value={"submit..."} />
-        <button>Submit</button>
-      </form>
+    <div>
       <div className="text-center">
         <h1 className="display-2">To do list</h1>
         <input
@@ -119,20 +87,6 @@ const DataList = () => {
                     Done
                   </button>
                 </td>
-                {/* <td>
-                <Link
-                  to={`/edit/${product.id}`}
-                  className="button is-small is-info"
-                >
-                  Edit
-                </Link>
-                <button
-                  onClick={() => deleteProduct(product.id)}
-                  className="button is-small is-danger"
-                >
-                  Delete
-                </button>
-              </td> */}
               </tr>
             ))}
           </tbody>
