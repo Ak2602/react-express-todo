@@ -30,3 +30,13 @@
   background-color: rgb(60, 171, 207);
   color: white;
 }
+.btn_lgt {
+  background-color: whitesmoke;
+  border: 2px solid #f61206;
+  border-radius: 8px;
+  transition-duration: 0.4s;
+}
+.btn_lgt:hover {
+  background-color: #f61206;
+  color: white;
+}

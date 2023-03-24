@@ -9,10 +9,8 @@ import cors from "cors";
 import bodyParser from "body-parser";
 
 import { listRouter } from "./src/Router/listRoute.js";
-import { logRouter } from "./src/router/userRoute.js";
+import { userRouter } from "./src/router/userRoute.js";
 import { indexRouter } from "./src/router/index.js";
-
-// import usersRouter from "./routes/users.js";
 
 const app = express();
 export const port = process.env.port || 9000;
@@ -31,11 +29,9 @@ app.use(urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(join(__dirname, "public")));
 
-app.use("/", indexRouter);
-app.use("/", logRouter);
-app.use("/", listRouter);
-
-// app.use("/users", usersRouter);
+app.use("/api", indexRouter);
+app.use("/apiUser", userRouter);
+app.use("/apiList", listRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -52,10 +48,5 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render("error");
 });
-
-// app.listen(port, function (err) {
-//   if (err) throw err;
-//   console.log(`Server running on ${port}`);
-// });
 
 export default app;

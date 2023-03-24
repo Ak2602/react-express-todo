@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import "../App.css";
+import { useNavigate } from "react-router-dom";
 
 // import { Link } from "react-router-dom";
 
@@ -9,6 +10,7 @@ const DataList = () => {
   const [data, setData] = useState([]);
   const [formData, setFormData] = useState("");
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     getData();
@@ -16,20 +18,20 @@ const DataList = () => {
 
   const getData = async () => {
     await axios
-      .get(`http://localhost:9000/list/${id}`)
+      .get(`http://localhost:9000/apiUser/list/${id}`)
       .then((response) => setData(response.data));
   };
 
   const addData = async () => {
     await axios
-      .post(`http://localhost:9000/new/${id}`, { task: formData })
+      .post(`http://localhost:9000/apiList/new/${id}`, { task: formData })
       .then((add_data) => console.log(add_data))
       .catch((error) => console.log(error));
     getData();
   };
   const updateData = async (id) => {
     await axios
-      .put("http://localhost:9000/done", { id: id })
+      .put("http://localhost:9000/apiList/done", { id: id })
       .then((upd_data) => console.log(upd_data))
       .catch((error) => console.log(error));
     getData();
@@ -37,10 +39,14 @@ const DataList = () => {
   const deleteData = async (id) => {
     console.log(id);
     await axios
-      .delete("http://localhost:9000/remove", { data: { id: id } })
+      .delete("http://localhost:9000/apiList/remove", { data: { id: id } })
       .then((del_data) => console.log(del_data))
       .catch((error) => console.log(error));
     getData();
+  };
+
+  const logout = () => {
+    navigate("/");
   };
 
   return (
@@ -91,6 +97,9 @@ const DataList = () => {
             ))}
           </tbody>
         </table>
+        <button className="btn_lgt" onClick={() => logout()}>
+          Logout
+        </button>
       </center>
     </div>
   );

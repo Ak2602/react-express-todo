@@ -25,7 +25,7 @@ const Login = () => {
   const userData = async (e) => {
     e.preventDefault();
     await axios
-      .post("http://localhost:9000/", user)
+      .post("http://localhost:9000/api/login", user)
       .then((response) => {
         response.data.value && setAuthenticated((data) => !data);
         setId(response.data.user_id);

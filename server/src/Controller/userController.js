@@ -4,7 +4,6 @@ import { list } from "../models/list.model.js";
 export const userLogin = async (req, response) => {
   try {
     let user_id = req.params.id;
-    console.log(user_id);
     let data = [];
     await con
       .sync()
@@ -19,10 +18,10 @@ export const userLogin = async (req, response) => {
             res.status(204).json(error);
           });
       })
-      .catch(() => {
-        resp.status(500).json("Error");
+      .catch((err) => {
+        resp.status(500).json(err);
       });
-  } catch {
-    response.status(500).json("error");
+  } catch (err) {
+    response.status(500).json(err);
   }
 };
