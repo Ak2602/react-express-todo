@@ -18,20 +18,20 @@ const DataList = () => {
 
   const getData = async () => {
     await axios
-      .get(`http://localhost:9000/apiUser/list/${id}`)
+      .get(`http://localhost:9000/api/user/${id}`)
       .then((response) => setData(response.data));
   };
 
   const addData = async () => {
     await axios
-      .post(`http://localhost:9000/apiList/new/${id}`, { task: formData })
+      .post(`http://localhost:9000/api/list/new/${id}`, { task: formData })
       .then((add_data) => console.log(add_data))
       .catch((error) => console.log(error));
     getData();
   };
   const updateData = async (id) => {
     await axios
-      .put("http://localhost:9000/apiList/done", { id: id })
+      .put("http://localhost:9000/api/list/done", { id: id })
       .then((upd_data) => console.log(upd_data))
       .catch((error) => console.log(error));
     getData();
@@ -39,7 +39,7 @@ const DataList = () => {
   const deleteData = async (id) => {
     console.log(id);
     await axios
-      .delete("http://localhost:9000/apiList/remove", { data: { id: id } })
+      .delete("http://localhost:9000/api/list/remove", { data: { id: id } })
       .then((del_data) => console.log(del_data))
       .catch((error) => console.log(error));
     getData();

@@ -11,7 +11,7 @@ function App() {
           <div className="column is-half is-offset-one-quarter">
             <Routes>
               <Route path="/" element={<Login />} />
-              <Route path="/list/:id" element={<DataList />} />
+              <Route path="/:id" element={<DataList />} />
             </Routes>
           </div>
         </div>

@@ -30,8 +30,8 @@ app.use(cookieParser());
 app.use(express.static(join(__dirname, "public")));
 
 app.use("/api", indexRouter);
-app.use("/apiUser", userRouter);
-app.use("/apiList", listRouter);
+app.use("/api/user", userRouter);
+app.use("/api/list", listRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

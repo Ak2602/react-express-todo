@@ -3,4 +3,4 @@ import { userLogin } from "../controller/userController.js";
 
 export const userRouter = Router();
 
-userRouter.get("/list/:id", userLogin);
+userRouter.get("/:id", userLogin);
